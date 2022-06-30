@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { getFilename, switchJavaScript, switchRuby, switchTypeScript, unknownLanguage } from './pathUtils';
+import { getFilename, switchJavaScript, switchRuby, switchTypeScript } from './pathUtils';
 
 async function copySpecPath(){
   const environment = vscode.env;
@@ -13,7 +13,7 @@ async function copySpecPath(){
   } else if(currentFile.endsWith(".rb") && currentFile.indexOf("_spec") === -1){
     specFile = switchRuby();
   } else {
-    return unknownLanguage();
+    specFile = getFilename();
   }
 
   vscode.commands.executeCommand("editor.action.clipboardCopyAction");
