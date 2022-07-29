@@ -6,5 +6,6 @@ suite('Extension Test Suite', () => {
 	test('it register the extension commands', async () => {
         await vscode.commands.executeCommand('switch-spec.switchSpec');
         await vscode.commands.executeCommand('switch-spec.copySpecPath');
+        await vscode.commands.executeCommand('switch-spec.toggleFixedSpec');
 	});
 });

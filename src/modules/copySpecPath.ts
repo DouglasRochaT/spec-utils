@@ -16,8 +16,7 @@ async function copySpecPath(){
     specFile = getFilename();
   }
 
-  vscode.commands.executeCommand("editor.action.clipboardCopyAction");
-  environment.clipboard.writeText(specFile);
+  return environment.clipboard.writeText(specFile);
 }
 
 export { copySpecPath };

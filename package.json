@@ -10,7 +10,9 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:switch-spec.switchSpec"
+		"onCommand:switch-spec.switchSpec",
+		"onCommand:switch-spec.copySpecPath",
+		"onCommand:switch-spec.toggleFixedSpec"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -18,7 +20,16 @@
 			{
 				"command": "switch-spec.switchSpec",
 				"title": "Switch Spec"
+			},
+			{
+				"command": "switch-spec.copySpecPath",
+				"title": "Copy Spec Path"
+			},
+			{
+				"command": "switch-spec.toggleFixedSpec",
+				"title": "Toggle Fixed Spec"
 			}
+
 		]
 	},
 	"scripts": {
