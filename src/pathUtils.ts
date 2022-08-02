@@ -18,8 +18,6 @@ async function switchFile(){
     return switchJavaScript();
   } else if(filename.endsWith(".rb")){
     return switchRuby();
-  } else {
-    return unknownLanguage();
   }
 }
 
@@ -59,10 +57,6 @@ function switchRuby(){
   }
 
   return vscode.commands.executeCommand("vscode.open", vscode.Uri.file(filename));
-}
-
-function unknownLanguage(){
-  vscode.window.showInformationMessage("Unknown language");
 }
 
 export { switchFile };

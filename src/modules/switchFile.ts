@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as vscode from 'vscode';
-import { getFilename, switchJavaScript, switchRuby, switchTypeScript, unknownLanguage } from "./pathUtils";
+import { getFilename, switchJavaScript, switchRuby, switchTypeScript } from "./pathUtils";
 
 async function quickPick(filePath: string){
   const options = {
@@ -26,8 +26,6 @@ async function switchFile(){
     destinationFile = switchJavaScript();
   } else if(currentFile.endsWith(".rb")){
     destinationFile = switchRuby();
-  } else {
-    return unknownLanguage();
   }
 
   if(fs.existsSync(destinationFile)){

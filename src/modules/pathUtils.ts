@@ -47,10 +47,5 @@ function switchRuby(){
   return filename;
 }
 
-function unknownLanguage(){
-  vscode.window.showInformationMessage("Unknown language");
-}
-
-
 export { switchJavaScript, switchTypeScript, switchRuby };
-export { getFilename, unknownLanguage };
+export { getFilename };
