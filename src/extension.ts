@@ -4,17 +4,17 @@ import { switchFile } from './modules/switchFile';
 import { toggleFixedSpec } from './modules/toggleFixedSpec';
 
 export function activate(context: vscode.ExtensionContext) {
-	console.log('Extension "switch-spec" is now active!');
+	console.log('Extension "spec-utils" is now active!');
 
-	let disposable = vscode.commands.registerCommand('switch-spec.switchSpec', () => {
+	let disposable = vscode.commands.registerCommand('spec-utils.switchSpec', () => {
 		switchFile();
 	});
 
-	let disposable2 = vscode.commands.registerCommand('switch-spec.copySpecPath', () => {
+	let disposable2 = vscode.commands.registerCommand('spec-utils.copySpecPath', () => {
 		copySpecPath();
 	});
 
-	let disposable3 = vscode.commands.registerCommand('switch-spec.toggleFixedSpec', () => {
+	let disposable3 = vscode.commands.registerCommand('spec-utils.toggleFixedSpec', () => {
 		toggleFixedSpec();
 	});
 

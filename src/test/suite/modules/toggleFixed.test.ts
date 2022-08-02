@@ -1,13 +1,13 @@
 import * as assert from 'assert';
+import * as mocha from 'mocha';
 import * as path from 'path';
 import * as vscode from 'vscode';
-import { after } from 'mocha';
 import { toggleFixedSpec } from '../../../modules/toggleFixedSpec';
 
 const fixturesFolder = '/../../../../src/test/fixtures/';
 
 suite('toggleFixedSpec Test Suite', () => {
-  after( async () => {
+  mocha.after( async () => {
     await vscode.commands.executeCommand('workbench.action.closeAllEditors');
   });
 

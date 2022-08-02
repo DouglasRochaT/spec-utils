@@ -1,5 +1,5 @@
 import * as assert from 'assert';
-import { after } from 'mocha';
+import * as mocha from 'mocha';
 import * as path from 'path';
 import * as vscode from 'vscode';
 import { switchFile } from '../../../modules/switchFile';
@@ -7,7 +7,7 @@ import { switchFile } from '../../../modules/switchFile';
 const fixturesFolder = '/../../../../src/test/fixtures/';
 
 suite('switchFile Test Suite', () => {
-  after( async () => {
+  mocha.after( async () => {
     await vscode.commands.executeCommand('workbench.action.closeAllEditors');
   });
 

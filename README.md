@@ -1,6 +1,6 @@
-# switch-spec README
+# spec-utils README
 
-This is the README for your extension "switch-spec". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "spec-utils". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 

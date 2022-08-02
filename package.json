@@ -1,7 +1,7 @@
 {
-	"name": "switch-spec",
-	"displayName": "Switch Spec",
-	"description": "Quick switch between source code and spec files.",
+	"name": "spec-utils",
+	"displayName": "Spec Utils",
+	"description": "Utilities to help with spec files.",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.66.2"
@@ -10,23 +10,23 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:switch-spec.switchSpec",
-		"onCommand:switch-spec.copySpecPath",
-		"onCommand:switch-spec.toggleFixedSpec"
+		"onCommand:spec-utils.switchSpec",
+		"onCommand:spec-utils.copySpecPath",
+		"onCommand:spec-utils.toggleFixedSpec"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "switch-spec.switchSpec",
+				"command": "spec-utils.switchSpec",
 				"title": "Switch Spec"
 			},
 			{
-				"command": "switch-spec.copySpecPath",
+				"command": "spec-utils.copySpecPath",
 				"title": "Copy Spec Path"
 			},
 			{
-				"command": "switch-spec.toggleFixedSpec",
+				"command": "spec-utils.toggleFixedSpec",
 				"title": "Toggle Fixed Spec"
 			}
 

@@ -1,5 +1,5 @@
 import * as assert from 'assert';
-import { after } from 'mocha';
+import * as mocha from 'mocha';
 import * as path from 'path';
 import * as vscode from 'vscode';
 import { copySpecPath } from '../../../modules/copySpecPath';
@@ -7,7 +7,7 @@ import { copySpecPath } from '../../../modules/copySpecPath';
 const fixturesFolder = '/../../../../src/test/fixtures/';
 
 suite('copySpecPath Test Suite', () => {
-  after( async () => {
+  mocha.after( async () => {
     await vscode.commands.executeCommand('workbench.action.closeAllEditors');
   });
 
