@@ -3,6 +3,7 @@ import { getFilename, switchJavaScript, switchRuby, switchTypeScript } from './p
 
 async function copySpecPath(){
   const environment = vscode.env;
+  const workspace = vscode.workspace;
   const currentFile = getFilename();
   let specFile = "";
 
@@ -16,7 +17,8 @@ async function copySpecPath(){
     specFile = getFilename();
   }
 
-  return environment.clipboard.writeText(specFile);
+  const relativepath = workspace.asRelativePath(specFile);
+  return environment.clipboard.writeText(relativepath);
 }
 
 export { copySpecPath };

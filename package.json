@@ -19,17 +19,36 @@
 		"commands": [
 			{
 				"command": "spec-utils.switchSpec",
-				"title": "Switch Spec"
+				"title": "Switch Between Spec File"
 			},
 			{
 				"command": "spec-utils.copySpecPath",
-				"title": "Copy Spec Path"
+				"title": "Copy Relative Spec Path"
 			},
 			{
 				"command": "spec-utils.toggleFixedSpec",
-				"title": "Toggle Fixed Spec"
+				"title": "Toggle Fixed Test Block"
 			}
-
+		],
+		"keybindings": [
+			{
+				"command": "spec-utils.switchSpec",
+				"key": "ctrl+shift+t",
+				"mac": "cmd+shift+t",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "spec-utils.copySpecPath",
+				"key": "ctrl+shift+y",
+				"mac": "cmd+shift+y",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "spec-utils.toggleFixedSpec",
+				"key": "ctrl+;",
+				"mac": "cmd+;",
+				"when": "editorTextFocus"
+			}
 		]
 	},
 	"scripts": {
