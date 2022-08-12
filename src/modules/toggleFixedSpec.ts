@@ -10,7 +10,7 @@ const rspecRegex = new RegExp(`(${rspecIdentifiers.join('|')}) (\'|\")`);
 
 function toggleFixedSpec(){
   const editor = vscode.window.activeTextEditor;
-  if (editor === undefined)  {return;};
+  if (editor === undefined)  {return;}
 
   let currentLineIndex = editor.selection.active.line;
 

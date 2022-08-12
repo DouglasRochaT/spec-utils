@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as vscode from 'vscode';
-import { getFilename, switchJavaScript, switchRuby, switchTypeScript } from "./pathUtils";
+import { fileType } from '../helpers/file';
+import { getFilename, switchJavaScript, switchRuby, switchTypeScript } from "../helpers/path";
 
 async function quickPick(filePath: string){
   const options = {
@@ -16,15 +17,16 @@ async function quickPick(filePath: string){
     });
 }
 
-async function switchFile(){
+function switchFile(){
   const currentFile = getFilename();
+  const type = fileType(currentFile);
   let destinationFile = "";
 
-  if(currentFile.endsWith(".ts")){
+  if(type === 'typescript'){
     destinationFile = switchTypeScript();
-  } else if(currentFile.endsWith(".js")){
+  } else if(type === 'javascript'){
     destinationFile = switchJavaScript();
-  } else if(currentFile.endsWith(".rb")){
+  } else if(type === 'ruby'){
     destinationFile = switchRuby();
   }
 

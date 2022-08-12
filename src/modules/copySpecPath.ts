@@ -1,17 +1,19 @@
 import * as vscode from 'vscode';
-import { getFilename, switchJavaScript, switchRuby, switchTypeScript } from './pathUtils';
+import { fileType } from '../helpers/file';
+import { getFilename, switchJavaScript, switchRuby, switchTypeScript } from '../helpers/path';
 
-async function copySpecPath(){
+function copySpecPath(){
   const environment = vscode.env;
   const workspace = vscode.workspace;
   const currentFile = getFilename();
+  const type = fileType(currentFile);
   let specFile = "";
 
-  if(currentFile.endsWith(".ts") && currentFile.indexOf(".spec") === -1){
+  if((type === 'typescript') && currentFile.indexOf(".spec") === -1){
     specFile = switchTypeScript();
-  } else if(currentFile.endsWith(".js") && currentFile.indexOf(".spec") === -1){
+  } else if((type === 'javascript') && currentFile.indexOf(".spec") === -1){
     specFile = switchJavaScript();
-  } else if(currentFile.endsWith(".rb") && currentFile.indexOf("_spec") === -1){
+  } else if(type === 'ruby' && currentFile.indexOf("_spec") === -1){
     specFile = switchRuby();
   } else {
     specFile = getFilename();
