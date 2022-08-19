@@ -2,12 +2,20 @@
 	"name": "spec-utils",
 	"displayName": "Spec Utils",
 	"description": "Utilities to help with spec files.",
-	"version": "0.0.1",
+	"version": "1.0.0",
+	"publisher": "DouglasRocha",
+	"author": "Douglas da Rocha",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/DouglasRochaT/spec-utils"
+	},
+	"icon": "images/icon.png",
+	"license": "GPL-3.0",
 	"engines": {
 		"vscode": "^1.66.2"
 	},
 	"categories": [
-		"Other"
+		"Testing"
 	],
 	"activationEvents": [
 		"onCommand:spec-utils.switchSpec",
