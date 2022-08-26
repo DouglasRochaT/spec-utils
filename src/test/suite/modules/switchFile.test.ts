@@ -49,9 +49,28 @@ suite('switchFile Test Suite', () => {
     assert.strictEqual(vscode.window.activeTextEditor?.document.fileName, srcFile);
   });
 
-  test('Ruby files', async() => {
-    const srcFile = path.join(__dirname + fixturesFolder + 'app/ruby_file.rb');
-    const specFile = path.join(__dirname + fixturesFolder + 'spec/ruby_file_spec.rb');
+  test('Rails files', async() => {
+    const srcFile = path.join(__dirname + fixturesFolder + 'rails_app/app/ruby_file.rb');
+    const specFile = path.join(__dirname + fixturesFolder + 'rails_app/spec/ruby_file_spec.rb');
+    let document = await vscode.workspace.openTextDocument(srcFile);
+
+    await vscode.window.showTextDocument(document);
+    await switchFile();
+
+    assert.strictEqual(vscode.window.activeTextEditor?.document.fileName, specFile);
+
+    await vscode.commands.executeCommand('workbench.action.closeAllEditors');
+
+    document = await vscode.workspace.openTextDocument(specFile);
+    await vscode.window.showTextDocument(document);
+    await switchFile();
+
+    assert.strictEqual(vscode.window.activeTextEditor?.document.fileName, srcFile);
+  });
+
+  test('Ruby gem files', async() => {
+    const srcFile = path.join(__dirname + fixturesFolder + 'ruby_gem/lib/ruby_file.rb');
+    const specFile = path.join(__dirname + fixturesFolder + 'ruby_gem/spec/ruby_file_spec.rb');
     let document = await vscode.workspace.openTextDocument(srcFile);
 
     await vscode.window.showTextDocument(document);

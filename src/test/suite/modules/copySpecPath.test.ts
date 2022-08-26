@@ -53,9 +53,30 @@ suite('copySpecPath Test Suite', () => {
     assert.strictEqual(await environment.clipboard.readText(), specFile);
   });
 
-  test('Ruby files', async() => {
-    const srcFile = path.join(__dirname + fixturesFolder + 'app/ruby_file.rb');
-    const specFile = path.join(__dirname + fixturesFolder + 'spec/ruby_file_spec.rb');
+  test('Rails files', async() => {
+    const srcFile = path.join(__dirname + fixturesFolder + 'rails_app/app/ruby_file.rb');
+    const specFile = path.join(__dirname + fixturesFolder + 'rails_app/spec/ruby_file_spec.rb');
+
+    const environment = vscode.env;
+    let document = await vscode.workspace.openTextDocument(srcFile);
+
+    await vscode.window.showTextDocument(document);
+    await copySpecPath();
+
+    assert.strictEqual(await environment.clipboard.readText(), specFile);
+
+    await vscode.commands.executeCommand('workbench.action.closeAllEditors');
+
+    document = await vscode.workspace.openTextDocument(specFile);
+    await vscode.window.showTextDocument(document);
+    await copySpecPath();
+
+    assert.strictEqual(await environment.clipboard.readText(), specFile);
+  });
+
+  test('Ruby gem files', async() => {
+    const srcFile = path.join(__dirname + fixturesFolder + 'ruby_gem/lib/ruby_file.rb');
+    const specFile = path.join(__dirname + fixturesFolder + 'ruby_gem/spec/ruby_file_spec.rb');
 
     const environment = vscode.env;
     let document = await vscode.workspace.openTextDocument(srcFile);

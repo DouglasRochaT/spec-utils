@@ -1,3 +1,4 @@
+import * as fs from 'fs';
 import * as vscode from 'vscode';
 
 function getFilename(){
@@ -37,10 +38,15 @@ function switchRuby(){
   let filename = getFilename();
 
   if(filename.indexOf("_spec") === -1){
-    filename = filename.replace("app/", "spec/");
+    filename = filename.replace("/app/", "/spec/");
+    filename = filename.replace("/lib/", "/spec/");
     filename = filename.replace(".rb", "_spec.rb");
   } else {
-    filename = filename.replace("/spec/", "/app/");
+    if(fs.existsSync(filename.replace(/spec\/.*/, 'app/'))){
+      filename = filename.replace("/spec/", "/app/");
+    } else if(fs.existsSync(filename.replace(/spec\/.*/, 'lib/'))){
+      filename = filename.replace("/spec/", "/lib/");
+    }
     filename = filename.replace("_spec.rb", ".rb");
   }
 

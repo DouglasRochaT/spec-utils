@@ -2,7 +2,7 @@
 	"name": "spec-utils",
 	"displayName": "Spec Utils",
 	"description": "Utilities to help with spec files.",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"publisher": "DouglasRocha",
 	"author": "Douglas da Rocha",
 	"repository": {
@@ -16,6 +16,13 @@
 	},
 	"categories": [
 		"Testing"
+	],
+	"keywords": [
+		"test",
+		"spec",
+		"rspec",
+		"jest",
+		"cypress"
 	],
 	"activationEvents": [
 		"onCommand:spec-utils.switchSpec",

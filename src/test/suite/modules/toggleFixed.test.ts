@@ -26,7 +26,7 @@ suite('toggleFixedSpec Test Suite', () => {
   });
 
   test('RSpec files', async () => {
-    const specFile = path.join(__dirname + fixturesFolder + 'spec/ruby_file_spec.rb');
+    const specFile = path.join(__dirname + fixturesFolder + 'rails_app/spec/ruby_file_spec.rb');
     let document = await vscode.workspace.openTextDocument(specFile);
 
     await vscode.window.showTextDocument(document);
