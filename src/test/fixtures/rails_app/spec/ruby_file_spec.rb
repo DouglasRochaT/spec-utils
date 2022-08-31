@@ -5,5 +5,10 @@ RSpec.describe RubyFile do
 
     it 'does something' do
     end
+
+    it {}
+
+    it do
+    end
   end
 end

@@ -37,5 +37,21 @@ suite('toggleFixedSpec Test Suite', () => {
 
     await toggleFixedSpec();
     assert.strictEqual(document.lineAt(5).text, "    it 'does something' do");
+
+    await vscode.commands.executeCommand('cursorMove', {to: 'down', by: 'line', value: 2});
+
+    await toggleFixedSpec();
+    assert.strictEqual(document.lineAt(8).text, "    fit {}");
+
+    await toggleFixedSpec();
+    assert.strictEqual(document.lineAt(8).text, "    it {}");
+
+    await vscode.commands.executeCommand('cursorMove', {to: 'down', by: 'line', value: 2});
+
+    await toggleFixedSpec();
+    assert.strictEqual(document.lineAt(10).text, "    fit do");
+
+    await toggleFixedSpec();
+    assert.strictEqual(document.lineAt(10).text, "    it do");
   });
 });
