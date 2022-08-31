@@ -6,7 +6,7 @@ const rspecIdentifiers = ['context', 'it'];
 
 const jestRegex = new RegExp(`(${jestIdentifiers.join('|')})(\\(|.only\\()`);
 const cypressRegex = new RegExp(`(${cypressIdentifiers.join('|')})(\\(|.only\\()`);
-const rspecRegex = new RegExp(`(${rspecIdentifiers.join('|')}) (\'|\")`);
+const rspecRegex = new RegExp(`(${rspecIdentifiers.join('|')}) (\'|\"|\{|do)`);
 
 function toggleFixedSpec(){
   const editor = vscode.window.activeTextEditor;
@@ -41,7 +41,7 @@ function toggleJS(editor: vscode.TextEditor, currentLine: vscode.TextLine){
 
 function toggleRSpec(editor: vscode.TextEditor, currentLine: vscode.TextLine) {
   let newLine: string;
-  let fixedRegex = new RegExp(`f(${rspecIdentifiers.join('|')}) (\'|\")`);
+  let fixedRegex = new RegExp(`f(${rspecIdentifiers.join('|')}) (\'|\"|\{|do)`);
 
   if(fixedRegex.test(currentLine.text)) {
     newLine = currentLine.text.replace('fit', 'it');
