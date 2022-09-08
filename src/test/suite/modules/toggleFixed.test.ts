@@ -30,7 +30,24 @@ suite('toggleFixedSpec Test Suite', () => {
     let document = await vscode.workspace.openTextDocument(specFile);
 
     await vscode.window.showTextDocument(document);
-    await vscode.commands.executeCommand('cursorMove', {to: 'down', by: 'line', value: 6});
+    await vscode.commands.executeCommand('cursorMove', {to: 'down', by: 'line', value: 1});
+
+    await toggleFixedSpec();
+    assert.strictEqual(document.lineAt(1).text, "  fdescribe '#method' do");
+
+    await toggleFixedSpec();
+    assert.strictEqual(document.lineAt(1).text, "  describe '#method' do");
+
+    await vscode.commands.executeCommand('cursorMove', {to: 'down', by: 'line', value: 2});
+
+    await toggleFixedSpec();
+    assert.strictEqual(document.lineAt(2).text, "    fcontext 'when something' do");
+
+    await toggleFixedSpec();
+    assert.strictEqual(document.lineAt(2).text, "    context 'when something' do");
+
+
+    await vscode.commands.executeCommand('cursorMove', {to: 'down', by: 'line', value: 3});
 
     await toggleFixedSpec();
     assert.strictEqual(document.lineAt(5).text, "    fit 'does something' do");

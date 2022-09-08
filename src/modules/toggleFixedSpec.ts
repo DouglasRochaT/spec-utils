@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 
 const jestIdentifiers = ['describe', 'test', 'it', 'concurrent'];
 const cypressIdentifiers = ['describe', 'context', 'it', 'specify'];
-const rspecIdentifiers = ['context', 'it'];
+const rspecIdentifiers = ['context', 'describe', 'it'];
 
 const jestRegex = new RegExp(`(${jestIdentifiers.join('|')})(\\(|.only\\()`);
 const cypressRegex = new RegExp(`(${cypressIdentifiers.join('|')})(\\(|.only\\()`);
@@ -46,9 +46,11 @@ function toggleRSpec(editor: vscode.TextEditor, currentLine: vscode.TextLine) {
   if(fixedRegex.test(currentLine.text)) {
     newLine = currentLine.text.replace('fit', 'it');
     newLine = newLine.replace('fdescribe', 'describe');
+    newLine = newLine.replace('fcontext', 'context');
   } else {
     newLine = currentLine.text.replace('it', 'fit');
     newLine = newLine.replace('describe', 'fdescribe');
+    newLine = newLine.replace('context', 'fcontext');
   }
 
   return editor.edit(editBuilder => {
