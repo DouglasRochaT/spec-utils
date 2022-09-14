@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import * as path from 'path';
 import * as vscode from 'vscode';
 import { fileType } from '../helpers/file';
 import { getFilename, switchJavaScript, switchRuby, switchTypeScript } from "../helpers/path";
@@ -11,7 +12,13 @@ async function quickPick(filePath: string){
   vscode.window.showQuickPick(["Yes", "No"], options)
     .then(selection => {
       if(selection === "Yes"){
-        fs.closeSync(fs.openSync(filePath, 'w'));
+        const dir = path.dirname(filePath);
+
+        if(!fs.existsSync(dir)){
+          fs.mkdirSync(dir, {recursive: true});
+        }
+
+        fs.closeSync(fs.openSync(filePath, 'w', ));
         return vscode.commands.executeCommand("vscode.open", vscode.Uri.file(filePath));
       }
     });
