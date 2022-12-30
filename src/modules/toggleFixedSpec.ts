@@ -4,8 +4,8 @@ const jestIdentifiers = ['describe', 'test', 'it', 'concurrent'];
 const cypressIdentifiers = ['describe', 'context', 'it', 'specify'];
 const rspecIdentifiers = ['context', 'describe', 'it'];
 
-const jestRegex = new RegExp(`(${jestIdentifiers.join('|')})(\\(|.only\\()`);
-const cypressRegex = new RegExp(`(${cypressIdentifiers.join('|')})(\\(|.only\\()`);
+const jestRegex = new RegExp(`(^|[^a-z])(${jestIdentifiers.join('|')})(\\(|.only\\()`);
+const cypressRegex = new RegExp(`(^|[^a-z])(${cypressIdentifiers.join('|')})(\\(|.only\\()`);
 const rspecRegex = new RegExp(`(${rspecIdentifiers.join('|')}) (\'|\"|\{|do)`);
 
 function toggleFixedSpec(){

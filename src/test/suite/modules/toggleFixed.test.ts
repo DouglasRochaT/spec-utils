@@ -23,6 +23,12 @@ suite('toggleFixedSpec Test Suite', () => {
 
     await toggleFixedSpec();
     assert.strictEqual(document.lineAt(1).text, "  it('does something', () => {");
+
+    await vscode.commands.executeCommand('cursorMove', {to: 'down', by: 'line', value: 11});
+
+        await toggleFixedSpec();
+        assert.strictEqual(document.lineAt(10).text, "  Image.edit();");
+
   });
 
   test('RSpec files', async () => {
@@ -45,7 +51,6 @@ suite('toggleFixedSpec Test Suite', () => {
 
     await toggleFixedSpec();
     assert.strictEqual(document.lineAt(2).text, "    context 'when something' do");
-
 
     await vscode.commands.executeCommand('cursorMove', {to: 'down', by: 'line', value: 3});
 

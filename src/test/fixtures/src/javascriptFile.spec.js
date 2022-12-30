@@ -6,6 +6,7 @@ describe('cypress', () => {
   });
 
   context('when something', () => {
-
   });
+
+  Image.edit();
 });

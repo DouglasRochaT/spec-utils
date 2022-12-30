@@ -2,7 +2,7 @@
 	"name": "spec-utils",
 	"displayName": "Spec Utils",
 	"description": "Utilities to help with spec files.",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"publisher": "DouglasRocha",
 	"author": "Douglas da Rocha",
 	"repository": {
