@@ -2,6 +2,11 @@
 
 All notable changes to the "spec-utils" extension will be documented in this file.
 
+## [1.2.2] - 2023-09-25
+### Enhancement
+
+- `toggleFixedSpec:` Fixed strings being edited when switching fixed specs [#3](https://github.com/DouglasRochaT/spec-utils/pull/3)
+
 ## [1.2.1] - 2022-12-29
 ### Enhancement
 
