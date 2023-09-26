@@ -40,18 +40,9 @@ function toggleJS(editor: vscode.TextEditor, currentLine: vscode.TextLine){
 }
 
 function toggleRSpec(editor: vscode.TextEditor, currentLine: vscode.TextLine) {
-  let newLine: string;
-  let fixedRegex = new RegExp(`f(${rspecIdentifiers.join('|')}) (\'|\"|\{|do)`);
-
-  if(fixedRegex.test(currentLine.text)) {
-    newLine = currentLine.text.replace('fit', 'it');
-    newLine = newLine.replace('fdescribe', 'describe');
-    newLine = newLine.replace('fcontext', 'context');
-  } else {
-    newLine = currentLine.text.replace('it', 'fit');
-    newLine = newLine.replace('describe', 'fdescribe');
-    newLine = newLine.replace('context', 'fcontext');
-  }
+  const newLine = currentLine.text.replace(/\b(f?it|f?describe|f?context)\b/, match => {
+    return match.charAt(0) === 'f' ? match.slice(1) : 'f' + match;
+  });
 
   return editor.edit(editBuilder => {
     editBuilder.replace(currentLine.range, newLine);
