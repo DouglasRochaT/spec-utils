@@ -10,5 +10,8 @@ RSpec.describe RubyFile do
 
     it do
     end
+
+    context 'with the value' do
+    end
   end
 end
