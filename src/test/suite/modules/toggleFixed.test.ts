@@ -26,8 +26,8 @@ suite('toggleFixedSpec Test Suite', () => {
 
     await vscode.commands.executeCommand('cursorMove', {to: 'down', by: 'line', value: 11});
 
-        await toggleFixedSpec();
-        assert.strictEqual(document.lineAt(10).text, "  Image.edit();");
+    await toggleFixedSpec();
+    assert.strictEqual(document.lineAt(10).text, "  Image.edit();");
 
   });
 
