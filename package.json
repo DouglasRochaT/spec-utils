@@ -4,7 +4,7 @@
 	"description": "Utilities to help with spec files.",
 	"version": "1.2.2",
 	"publisher": "DouglasRocha",
-	"author": "Douglas da Rocha",
+	"author": "Douglas Rocha",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/DouglasRochaT/spec-utils"
