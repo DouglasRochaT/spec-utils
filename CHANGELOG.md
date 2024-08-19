@@ -3,6 +3,7 @@
 All notable changes to the "spec-utils" extension will be documented in this file.
 
 ## [Next] -
+- Bundle with webpack
 - Update vscode engine to 1.84.0
 - Migrate to npm
 
